@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Operação Barricada Zero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-bg 4s ease-in-out infinite;
+        }
+
+        .btn-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(12deg);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover .btn-shine {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen w-full bg-gradient-to-br from-[#667eea] to-[#764ba2] p-4 sm:p-8 flex justify-center items-center">
+    
+    <div class="w-full max-w-[1400px] space-y-8 animate-fade-in-up">
+        
+        <!-- Header Card -->
+        <div class="rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] bg-white/98 backdrop-blur-md transition-all duration-500 ease-out transform translate-y-0 opacity-100">
+            <div class="relative overflow-hidden bg-gradient-to-br from-[#1e3c72] to-[#2a5298] p-8 text-white">
+                <!-- Background Pulse -->
+                <div class="absolute -top-1/2 -right-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_70%)] pointer-events-none animate-pulse-slow"></div>
+
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-[200px_1fr_200px] gap-8 items-center">
+                    <!-- Logo GSI -->
+                    <div class="bg-transparent p-2 rounded-[15px] max-w-[180px] md:max-w-full mx-auto transition-transform hover:scale-105 hover:rotate-2 duration-300">
+                        <!-- Substitua pelo caminho da imagem local se necessário, usando base64 para arquivo único -->
+                        <img src="attached_assets/Logo_GSI_-_IV_1765302595954.png" alt="Logo GSI-RJ" class="w-full h-auto block drop-shadow-lg">
+                    </div>
+
+                    <!-- Logo Operation -->
+                    <div class="flex justify-center p-4">
+                        <img src="attached_assets/Nome_Operação_-_Logo_Barricada_Zero_1765300429393.png" alt="Operação Barricada Zero" class="animate-float w-full max-w-[300px] md:max-w-[450px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
+                    </div>
+
+                    <!-- Logo Palacio -->
+                    <div class="bg-white p-4 rounded-[15px] shadow-lg max-w-[180px] md:max-w-full mx-auto transition-transform hover:scale-105 hover:-rotate-2 duration-300">
+                        <img src="attached_assets/Palacio_1765300429393.jpg" alt="Palácio Guanabara" class="w-full h-auto rounded-[10px] block">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partners Card -->
+        <div class="rounded-[20px] bg-white/98 shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 md:p-10 backdrop-blur-md">
+            <div class="text-center mb-10 relative">
+                <h2 class="text-[#1e3c72] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
+                    🤝 Parceiros da Operação
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-full"></span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Partner 1 -->
+                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="attached_assets/1_-_Parceiro_Brasão_PMERJ_1765300429393.jpeg" alt="PMERJ" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                </div>
+                <!-- Partner 2 -->
+                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="attached_assets/2_-_Parceiro_SecObras_1765300429393.jpeg" alt="Obras Públicas" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                </div>
+                <!-- Partner 3 -->
+                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="attached_assets/3_-_Parceiro_SecHab_1765300429393.jpeg" alt="Habitação" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                </div>
+                <!-- Partner 4 -->
+                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="attached_assets/4_-_Parceiro_SecAgro_1765300429393.jpeg" alt="Agricultura" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboards Card -->
+        <div class="rounded-[20px] bg-white/98 shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 md:p-10 backdrop-blur-md">
+            <div class="text-center mb-10 relative">
+                <h2 class="text-[#1e3c72] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
+                    📊 Acessar Dashboards
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-full"></span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <button onclick="alert('Link do Dashboard GSI será configurado em breve.')" class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
+                    <span class="relative z-10">🛡️</span>
+                    <span class="relative z-10">Dashboard GSI</span>
+                    <div class="btn-shine"></div>
+                </button>
+                <button onclick="alert('Link do Dashboard PCERJ será configurado em breve.')" class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
+                    <span class="relative z-10">🚔</span>
+                    <span class="relative z-10">Dashboard PCERJ</span>
+                    <div class="btn-shine"></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-white text-sm md:text-base mt-8 pb-4 opacity-90">
+            <p>© 2024 Operação Barricada Zero - Governo do Estado do Rio de Janeiro</p>
+        </div>
+    </div>
+</body>
+</html>
