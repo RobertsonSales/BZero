@@ -41,6 +41,23 @@
         .btn:hover .btn-shine {
             left: 100%;
         }
+        
+        /* Melhoria no contraste das imagens do cabeçalho */
+        .header-img {
+            filter: brightness(1.1) contrast(1.05) drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+        }
+        
+        /* Estilos para melhorar imagens que não carregam */
+        .image-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="min-h-screen w-full bg-gradient-to-br from-[#667eea] to-[#764ba2] p-4 sm:p-8 flex justify-center items-center">
@@ -56,18 +73,20 @@
                 <div class="relative z-10 grid grid-cols-1 md:grid-cols-[200px_1fr_200px] gap-8 items-center">
                     <!-- Logo GSI -->
                     <div class="bg-transparent p-2 rounded-[15px] max-w-[180px] md:max-w-full mx-auto transition-transform hover:scale-105 hover:rotate-2 duration-300">
-                        <!-- Substitua pelo caminho da imagem local se necessário, usando base64 para arquivo único -->
-                        <img src="Imagens/logo-gsi.png" alt="Logo GSI-RJ" class="w-full h-auto block drop-shadow-lg">
+                        <img src="Imagens/logo-gsi.png" alt="Logo GSI-RJ" class="header-img w-full h-auto block drop-shadow-lg"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"180\" height=\"100\" viewBox=\"0 0 180 100\"><rect width=\"180\" height=\"100\" fill=\"%231e3c72\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"14\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">GSI-RJ</text></svg>'">
                     </div>
 
                     <!-- Logo Operation -->
                     <div class="flex justify-center p-4">
-                        <img src="Imagens/logo-barricada-zero.png" alt="Operação Barricada Zero" class="animate-float w-full max-w-[300px] md:max-w-[450px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
+                        <img src="Imagens/logo-barricada-zero.png" alt="Operação Barricada Zero" class="header-img animate-float w-full max-w-[300px] md:max-w-[450px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"450\" height=\"150\" viewBox=\"0 0 450 150\"><rect width=\"450\" height=\"150\" fill=\"%231e3c72\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">OPERAÇÃO BARRICADA ZERO</text></svg>'">
                     </div>
 
                     <!-- Logo Palacio -->
                     <div class="bg-white p-4 rounded-[15px] shadow-lg max-w-[180px] md:max-w-full mx-auto transition-transform hover:scale-105 hover:-rotate-2 duration-300">
-                        <img src="Imagens/bandeira.pnj" alt="Palácio Guanabara" class="w-full h-auto rounded-[10px] block">
+                        <img src="Imagens/bandeira.pnj" alt="Palácio Guanabara" class="header-img w-full h-auto rounded-[10px] block"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"180\" height=\"120\" viewBox=\"0 0 180 120\"><rect width=\"180\" height=\"120\" fill=\"white\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"%231e3c72\" text-anchor=\"middle\" dy=\".3em\">PALÁCIO GUANABARA</text></svg>'">
                     </div>
                 </div>
             </div>
@@ -85,19 +104,23 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 <!-- Partner 1 -->
                 <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="Imagens/parceiro-pmerj.jpeg" alt="PMERJ" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                    <img src="Imagens/parceiro-pmerj.jpeg" alt="PMERJ" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"14\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">PMERJ</text></svg>'">
                 </div>
                 <!-- Partner 2 -->
                 <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="Imagens/parceiro-obras.jpeg" alt="Obras Públicas" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                    <img src="Imagens/parceiro-obras.jpeg" alt="Obras Públicas" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">SEC. OBRAS</text></svg>'">
                 </div>
                 <!-- Partner 3 -->
                 <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="Imagens/parceiro-habitacao.jpeg" alt="Habitação" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                    <img src="Imagens/parceiro-habitacao.jpeg" alt="Habitação" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">SEC. HABITAÇÃO</text></svg>'">
                 </div>
                 <!-- Partner 4 -->
                 <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="Imagens/parceiro-agricultura.jpeg" alt="Agricultura" class="max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain">
+                    <img src="Imagens/parceiro-agricultura.jpeg" alt="Agricultura" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">SEC. AGRICULTURA</text></svg>'">
                 </div>
             </div>
         </div>
@@ -112,16 +135,26 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <button onclick="alert('Link do Dashboard GSI será configurado em breve.')" class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
+                <button onclick="window.open('https://bzero-gsi-b.vercel.app/', '_blank', 'noopener,noreferrer')" 
+                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
                     <span class="relative z-10">🛡️</span>
                     <span class="relative z-10">Dashboard GSI</span>
                     <div class="btn-shine"></div>
                 </button>
-                <button onclick="alert('Link do Dashboard PCERJ será configurado em breve.')" class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
+                <button onclick="window.open('https://bzero-gsi-a.vercel.app/', '_blank', 'noopener,noreferrer')" 
+                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
                     <span class="relative z-10">🚔</span>
                     <span class="relative z-10">Dashboard PCERJ</span>
                     <div class="btn-shine"></div>
                 </button>
+            </div>
+            
+            <!-- Informações sobre os dashboards (adicionei esta seção para melhor experiência do usuário) -->
+            <div class="mt-6 pt-6 border-t border-gray-200 text-center">
+                <p class="text-sm text-gray-600">
+                    <strong>Dashboard GSI:</strong> <span class="text-xs font-mono">https://bzero-gsi-b.vercel.app/</span><br>
+                    <strong>Dashboard PCERJ:</strong> <span class="text-xs font-mono">https://bzero-gsi-a.vercel.app/</span>
+                </p>
             </div>
         </div>
 
@@ -130,5 +163,43 @@
             <p>© 2024 Operação Barricada Zero - Governo do Estado do Rio de Janeiro</p>
         </div>
     </div>
+    
+    <script>
+        // Adicionando um pequeno feedback visual ao clicar nos botões
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Adiciona efeito de clique
+                    this.classList.add('scale-95');
+                    setTimeout(() => {
+                        this.classList.remove('scale-95');
+                    }, 150);
+                    
+                    // Verifica qual dashboard está sendo aberto
+                    const buttonText = this.querySelector('span:nth-child(2)').textContent;
+                    if (buttonText.includes('GSI')) {
+                        console.log('Abrindo Dashboard GSI...');
+                    } else if (buttonText.includes('PCERJ')) {
+                        console.log('Abrindo Dashboard PCERJ...');
+                    }
+                });
+            });
+            
+            // Verifica e corrige problemas com imagens
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // Verifica se a imagem carregou corretamente
+                img.addEventListener('load', function() {
+                    console.log(`Imagem carregada: ${this.alt}`);
+                });
+                
+                img.addEventListener('error', function() {
+                    console.warn(`Imagem não encontrada: ${this.src}`);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
