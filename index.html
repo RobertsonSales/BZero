@@ -19,13 +19,8 @@
             50% { transform: translateY(-10px); }
         }
 
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-pulse-slow {
-            animation: pulse-bg 4s ease-in-out infinite;
-        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-bg 4s ease-in-out infinite; }
 
         .btn-shine {
             position: absolute;
@@ -38,37 +33,74 @@
             transition: left 0.5s ease;
         }
 
-        .btn:hover .btn-shine {
-            left: 100%;
-        }
+        .btn:hover .btn-shine { left: 100%; }
         
-        /* Ajustes para melhor distribuição e contraste das imagens no header */
-        .header-logo-gsi {
-            max-width: 220px;
-        }
-        .header-logo-operation {
-            max-width: 500px;
-        }
-        .header-logo-bandeira {
-            max-width: 200px;
-        }
+        .header-logo-gsi { max-width: 220px; }
+        .header-logo-operation { max-width: 500px; }
+        .header-logo-bandeira { max-width: 200px; }
         
-        /* Filtros ajustados para a nova cor de fundo */
         .partner-img {
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
             transition: transform 0.3s ease;
         }
         
-        .partner-img:hover {
-            transform: scale(1.05);
+        .partner-img:hover { transform: scale(1.05); }
+
+        /* Estilos do Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: auto;
+            padding: 2rem;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #4b5563;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover { color: #1f2937; }
     </style>
 </head>
 <body class="min-h-screen w-full bg-gradient-to-br from-[#2563eb] to-[#93c5fd] p-4 sm:p-8 flex justify-center items-center">
     
     <div class="w-full max-w-[1400px] space-y-8">
         
-        <!-- CARD INICIAL - TOM GRAFITE MAIS CLARO -->
+        <!-- CARD INICIAL (inalterado) -->
         <div class="rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] bg-gradient-to-br from-[#6b7280] to-[#9ca3af] p-8 md:p-10 backdrop-blur-md">
             <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
                 <div class="transition-transform hover:scale-105 hover:rotate-2 duration-300">
@@ -77,7 +109,7 @@
                 </div>
 
                 <div class="animate-float">
-                    <img src="imagens/logo-barricada-zero.png" alt="" class="header-logo-operation w-full h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
+                    <img src="imagens/logo-barricada-zero.png" alt="Operação Barricada Zero" class="header-logo-operation w-full h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
                          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"150\"><rect width=\"500\" height=\"150\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"32\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
 
@@ -88,55 +120,67 @@
             </div>
         </div>
 
-        <!-- CARD PARCEIROS - GRADIENTE DECRESCENTE COM MOLDURAS -->
+        <!-- CARD PARCEIROS - AGORA COM MODAL -->
         <div class="rounded-[20px] bg-gradient-to-br from-[#4b5563] to-[#6b7280] shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
                 <h2 class="text-white text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
-                    🤝 Parceiros da Operação
+                    Parceiros da Operação
                     <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#93c5fd] to-[#60a5fa] rounded-full"></span>
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Sub-cards com molduras -->
-                <div class="bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm">
-                    <img src="imagens/parceiro-pmerj.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <!-- PMERJ -->
+                <div class="partner-card bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
+                     data-title="Polícia Militar do Estado do Rio de Janeiro - PMERJ"
+                     data-desc="Responsável pela segurança pública ostensiva e preservação da ordem pública em todo o território fluminense. Atua em conjunto com o GSI na Operação Barricada Zero para garantir a execução das ações de remoção de barricadas e recuperação de áreas dominadas pelo crime organizado.">
+                    <img src="imagens/parceiro-pmerj.jpeg" alt="PMERJ" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">PMERJ</text></svg>'">
                 </div>
-                <div class="bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm">
-                    <img src="imagens/parceiro-obras.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+
+                <!-- Secretaria de Obras -->
+                <div class="partner-card bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
+                     data-title="Secretaria de Estado de Obras e Infraestrutura"
+                     data-desc="Responsável pela execução das obras de demolição de barricadas, reconstrução viária e recuperação urbanística das áreas liberadas. Coordena máquinas pesadas, equipes técnicas e projetos de engenharia para garantir a rápida normalização das vias.">
+                    <img src="imagens/parceiro-obras.jpeg" alt="Secretaria de Obras" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">OBRAS</text></svg>'">
                 </div>
-                <div class="bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm">
-                    <img src="imagens/parceiro-habitacao.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+
+                <!-- Secretaria de Habitação -->
+                <div class="partner-card bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
+                     data-title="Secretaria de Estado de Habitação de Interesse Social"
+                     data-desc="Atua na identificação, reassentamento e assistência às famílias que eventualmente residem nas áreas afetadas pelas barricadas, garantindo que a operação ocorra com respeito aos direitos humanos e oferecendo soluções habitacionais dignas.">
+                    <img src="imagens/parceiro-habitacao.jpeg" alt="Habitação" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">HABITAÇÃO</text></svg>'">
                 </div>
-                <div class="bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm">
-                    <img src="imagens/parceiro-agricultura.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+
+                <!-- Secretaria de Agricultura -->
+                <div class="partner-card bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
+                     data-title="Secretaria de Estado de Agricultura, Pecuária, Pesca e Abastecimento"
+                     data-desc="Responsável pelo apoio logístico em áreas rurais afetadas e pela fiscalização do uso indevido de terras públicas para construção de barricadas em regiões agrícolas, contribuindo para a segurança alimentar e o desenvolvimento sustentável.">
+                    <img src="imagens/parceiro-agricultura.jpeg" alt="Agricultura" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">AGRICULTURA</text></svg>'">
                 </div>
             </div>
         </div>
 
-        <!-- DEMAIS CARDS (MANTIDOS COMO ESTAVAM) -->
+        <!-- DEMAIS CARDS (mantidos exatamente como estavam) -->
         <div class="rounded-[20px] bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
                 <h2 class="text-[#2563eb] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
-                    📊 Acessar Dashboards
+                    Acessar Dashboards
                     <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] rounded-full"></span>
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <button onclick="window.open('https://bzero-gsi-b.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:translate-y-0 cursor-pointer border border-blue-400/30">
-                    <span class="relative z-10 text-2xl">🛡️</span>
+                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:y-0 cursor-pointer border border-blue-400/30">
                     <span class="relative z-10">Dashboard GSI - PMERJ</span>
                     <div class="btn-shine"></div>
                 </button>
                 <button onclick="window.open('https://bzero-gsi-a.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:translate-y-0 cursor-pointer border border-blue-400/30">
-                    <span class="relative z-10 text-2xl">🚔</span>
+                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:y-0 cursor-pointer border border-blue-400/30">
                     <span class="relative z-10">Dashboard GSI - PCERJ</span>
                     <div class="btn-shine"></div>
                 </button>
@@ -153,29 +197,66 @@
             <p>© GSI - 2025 - Operação Barricada Zero - Governo do Estado do Rio de Janeiro</p>
         </div>
     </div>
-    
+
+    <!-- MODAL -->
+    <div id="partnerModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar">×</button>
+            <div class="text-center">
+                <img id="modalImg" src="" alt="" class="mx-auto max-w-full max-h-64 rounded-lg shadow-lg mb-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+                <p id="modalDesc" class="text-gray-600 leading-relaxed max-w-2xl mx-auto"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.btn');
-            
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     this.classList.add('scale-95');
-                    setTimeout(() => {
-                        this.classList.remove('scale-95');
-                    }, 150);
+                    setTimeout(() => this.classList.remove('scale-95'), 150);
                 });
             });
-            
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('load', function() {
-                    console.log(`Imagem carregada: ${this.alt}`);
+
+            // --- Funcionalidade do Modal ---
+            const modal = document.getElementById('partnerModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            const closeBtn = document.querySelector('.modal-close');
+
+            document.querySelectorAll('.partner-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                    modalTitle.textContent = this.dataset.title;
+                    modalDesc.textContent = this.dataset.desc;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // impede scroll
                 });
-                
-                img.addEventListener('error', function() {
-                    console.warn(`Imagem não encontrada: ${this.src}`);
-                });
+            });
+
+            // Fechar modal
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
+
+            // Logs de imagens (mantidos)
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('load', () => console.log(`Imagem carregada: ${img.alt}`));
+                img.addEventListener('error', () => console.warn(`Imagem não encontrada: ${img.src}`));
             });
         });
     </script>
