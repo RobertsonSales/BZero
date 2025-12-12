@@ -33,7 +33,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(60deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(60deg, transparent, rgba(255,255,255,0.3), transparent);
             transform: skewX(12deg);
             transition: left 0.5s ease;
         }
@@ -42,151 +42,140 @@
             left: 100%;
         }
         
-        /* Melhoria no contraste das imagens do cabeçalho */
-        .header-img {
-            filter: brightness(2.1) contrast(1.05) drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+        /* Ajustes para melhor distribuição e contraste das imagens no header */
+        .header-logo-gsi {
+            max-width: 220px;
+        }
+        .header-logo-operation {
+            max-width: 500px;
+        }
+        .header-logo-bandeira {
+            max-width: 200px;
         }
         
-        /* Estilos para melhorar imagens que não carregam */
-        .image-fallback {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
-            border: 2px dashed rgba(255,255,255,0.3);
-            color: white;
-            font-weight: bold;
-            text-align: center;
+        /* ATUALIZADO: Fundo azul médio/claro para os cards de parceiros.
+           Melhora o contraste sem ser escuro demais. */
+        .partner-bg {
+            background: linear-gradient(to br, #3b82f6, #60a5fa); /* Azul-500 para Azul-400 */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Filtros ajustados para a nova cor de fundo */
+        .partner-img {
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+        }
+        
+        .partner-img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="min-h-screen w-full bg-gradient-to-br from-[#667eea] to-[#764ba2] p-4 sm:p-8 flex justify-center items-center">
+<body class="min-h-screen w-full bg-gradient-to-br from-[#2563eb] to-[#93c5fd] p-4 sm:p-8 flex justify-center items-center">
     
-    <div class="w-full max-w-[1400px] space-y-8 animate-fade-in-up">
+    <div class="w-full max-w-[1400px] space-y-8">
         
-        <!-- Header Card -->
-		<div class="rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] bg-white/90 backdrop-blur-md transition-all duration-500 ease-out transform translate-y-0 opacity-95">
-  			<div class="relative overflow-hidden bg-gradient-to-br from-blue-300 to-blue-500 p-8 text-white">
-    			<div class="absolute -top-1/2 -right-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(255,255,255,0.15)_0%,transparent_70%)] pointer-events-none animate-pulse-slow"></div></div>
-                <div class="relative overflow-hidden bg-gradient-to-br from-blue-300 to-blue-700 p-8 text-white">
-                    <!-- Logo GSI -->
-                    <div class="bg-transparent p-2 rounded-[15px] max-w-[180px] md:max-w-full mx-auto transition-transform hover:scale-105 hover:rotate-2 duration-300">
-                        <img src="imagens/logo-gsi-neg.png" alt="" class="header-img w-full h-auto block drop-shadow-lg"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"15\" viewBox=\"0 0 180 100\"><rect width=\"180\" height=\"100\" fill=\"%231e3c72\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"14\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+        <div class="rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] bg-white/95 backdrop-blur-md">
+            <div class="relative overflow-hidden bg-gradient-to-br from-blue-500 to-blue-400 p-8 text-white">
+                <div class="absolute -top-1/2 -right-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none animate-pulse-slow"></div>
+                
+                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
+                    <div class="transition-transform hover:scale-105 hover:rotate-2 duration-300">
+                        <img src="imagens/logo-gsi-neg.png" alt="" class="header-logo-gsi w-full h-auto drop-shadow-lg"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"220\" height=\"100\"><rect width=\"220\" height=\"100\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                     </div>
 
-                    <!-- Logo Operation -->
-                    <div class="flex justify-center p-4">
-                        <img src="imagens/logo-barricada-zero.png" alt="" class="header-img animate-float w-full max-w-[300px] md:max-w-[450px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"450\" height=\"150\" viewBox=\"0 0 450 150\"><rect width=\"450\" height=\"150\" fill=\"%231e3c72\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                    <div class="animate-float">
+                        <img src="imagens/logo-barricada-zero.png" alt="" class="header-logo-operation w-full h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"150\"><rect width=\"500\" height=\"150\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"32\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                     </div>
 
-                    <!-- Logo Palacio -->
-                    <div class="bg-white p-4 rounded-[15px] shadow-lg max-w-[180px] md:max-w-full mx-auto transition-transform hover:scale-105 hover:-rotate-2 duration-300">
-                        <img src="imagens/bandeira.png" alt="" class="header-img w-full h-auto rounded-[10px] block"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"15\" viewBox=\"0 0 180 120\"><rect width=\"180\" height=\"120\" fill=\"white\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"%231e3c72\" text-anchor=\"middle\" dy=\".3em\"">
+                    <div class="bg-white p-4 rounded-[15px] shadow-lg transition-transform hover:scale-105 hover:-rotate-2 duration-300">
+                        <img src="imagens/bandeira.png" alt="" class="header-logo-bandeira w-full h-auto rounded-[10px]"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"140\"><rect width=\"200\" height=\"140\" fill=\"%23eee\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"%233b82f6\" text-anchor=\"middle\" dy=\".3em\">RJ</text></svg>'">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Partners Card -->
-        <div class="rounded-[20px] bg-white/98 shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 md:p-10 backdrop-blur-md">
+        <div class="rounded-[20px] bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
-                <h2 class="text-[#1e3c72] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
+                <h2 class="text-[#2563eb] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
                     🤝 Parceiros da Operação
-                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-full"></span>
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] rounded-full"></span>
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Partner 1 -->
-                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="imagens/parceiro-pmerj.jpeg" alt="" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"14\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
+                    <img src="imagens/parceiro-pmerj.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
-                <!-- Partner 2 -->
-                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="imagens/parceiro-obras.jpeg" alt="" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
+                    <img src="imagens/parceiro-obras.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
-                <!-- Partner 3 -->
-                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="imagens/parceiro-habitacao.jpeg" alt="" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
+                    <img src="imagens/parceiro-habitacao.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
-                <!-- Partner 4 -->
-                <div class="bg-gradient-to-br from-[#667eea] to-[#764ba2] p-6 rounded-[15px] shadow-lg flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <img src="imagens/parceiro-agricultura.jpeg" alt="" class="header-img max-w-full max-h-[130px] w-auto h-auto brightness-110 object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\" viewBox=\"0 0 150 100\"><rect width=\"150\" height=\"100\" fill=\"%23667eea\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"12\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
+                    <img src="imagens/parceiro-agricultura.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
             </div>
         </div>
 
-        <!-- Dashboards Card -->
-        <div class="rounded-[20px] bg-white/98 shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 md:p-10 backdrop-blur-md">
+        <div class="rounded-[20px] bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
-                <h2 class="text-[#1e3c72] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
+                <h2 class="text-[#2563eb] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
                     📊 Acessar Dashboards
-                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-full"></span>
+                    <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] rounded-full"></span>
                 </h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <button onclick="window.open('https://bzero-gsi-b.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
-                    <span class="relative z-10">🛡️</span>
+                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:translate-y-0 cursor-pointer border border-blue-400/30">
+                    <span class="relative z-10 text-2xl">🛡️</span>
                     <span class="relative z-10">Dashboard GSI - PMERJ</span>
                     <div class="btn-shine"></div>
                 </button>
                 <button onclick="window.open('https://bzero-gsi-a.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(30,60,114,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(30,60,114,0.4)] active:translate-y-0 cursor-pointer">
-                    <span class="relative z-10">🚔</span>
+                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] text-white p-6 rounded-[15px] font-semibold text-xl flex items-center justify-center gap-4 shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:translate-y-0 cursor-pointer border border-blue-400/30">
+                    <span class="relative z-10 text-2xl">🚔</span>
                     <span class="relative z-10">Dashboard GSI - PCERJ</span>
                     <div class="btn-shine"></div>
                 </button>
             </div>
             
-            <!-- Informações sobre os dashboards (adicionei esta seção para melhor experiência do usuário) -->
-            <div class="mt-6 pt-6 border-t border-gray-200 text-center">
-                <p class="text-sm text-gray-800">
-                    <strong>Dashboard GSI - PMERJ e Dashboard GSI - PCERJ
+            <div class="mt-6 pt-6 border-t border-gray-100 text-center">
+                <p class="text-sm text-gray-600">
+                    <strong>Dashboard GSI - PMERJ e Dashboard GSI - PCERJ</strong>
+                </p>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="text-center text-white text-sm md:text-base mt-8 pb-4 opacity-90">
+        <div class="text-center text-white text-sm md:text-base mt-8 pb-4 font-medium tracking-wide drop-shadow-md">
             <p>© GSI - 2025 - Operação Barricada Zero - Governo do Estado do Rio de Janeiro</p>
         </div>
     </div>
     
     <script>
-        // Adicionando um pequeno feedback visual ao clicar nos botões
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.btn');
             
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
-                    // Adiciona efeito de clique
                     this.classList.add('scale-95');
                     setTimeout(() => {
                         this.classList.remove('scale-95');
                     }, 150);
-                    
-                    // Verifica qual dashboard está sendo aberto
-                    const buttonText = this.querySelector('span:nth-child(2)').textContent;
-                    if (buttonText.includes('GSI')) {
-                        console.log('Abrindo Dashboard GSI...');
-                    } else if (buttonText.includes('PCERJ')) {
-                        console.log('Abrindo Dashboard PCERJ...');
-                    }
                 });
             });
             
-            // Verifica e corrige problemas com imagens
             const images = document.querySelectorAll('img');
             images.forEach(img => {
-                // Verifica se a imagem carregou corretamente
                 img.addEventListener('load', function() {
                     console.log(`Imagem carregada: ${this.alt}`);
                 });
@@ -199,10 +188,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
