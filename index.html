@@ -53,10 +53,10 @@
             max-width: 200px;
         }
         
-        /* ATUALIZADO: Fundo azul médio/claro para os cards de parceiros.
-           Melhora o contraste sem ser escuro demais. */
+        /* Fundo azul médio/claro para os cards de parceiros. */
         .partner-bg {
             background: linear-gradient(to br, #3b82f6, #60a5fa); /* Azul-500 para Azul-400 */
+            /* A moldura (border) está definida diretamente no HTML, mas mantemos o border: 1px solid rgba(255, 255, 255, 0.3) */
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
@@ -76,22 +76,22 @@
     <div class="w-full max-w-[1400px] space-y-8">
         
         <div class="rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] bg-white/95 backdrop-blur-md">
-            <div class="relative overflow-hidden bg-gradient-to-br from-blue-500 to-blue-400 p-8 text-white">
+            <div class="relative overflow-hidden bg-gradient-to-br from-[#333333] to-[#555555] p-8 text-white">
                 <div class="absolute -top-1/2 -right-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(255,255,255,0.2)_0%,transparent_70%)] pointer-events-none animate-pulse-slow"></div>
                 
                 <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
                     <div class="transition-transform hover:scale-105 hover:rotate-2 duration-300">
-                        <img src="imagens/logo-gsi-neg.png" alt="" class="header-logo-gsi w-full h-auto drop-shadow-lg"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"220\" height=\"100\"><rect width=\"220\" height=\"100\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                        <img src="imagens/logo-gsi-neg.png" alt="GSI Logo" class="header-logo-gsi w-full h-auto drop-shadow-lg"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"220\" height=\"100\"><rect width=\"220\" height=\"100\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">GSI-RJ</text></svg>'">
                     </div>
 
                     <div class="animate-float">
-                        <img src="imagens/logo-barricada-zero.png" alt="" class="header-logo-operation w-full h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"150\"><rect width=\"500\" height=\"150\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"32\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                        <img src="imagens/logo-barricada-zero.png" alt="Barricada Zero" class="header-logo-operation w-full h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"150\"><rect width=\"500\" height=\"150\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"32\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">BARRICADA ZERO</text></svg>'">
                     </div>
 
                     <div class="bg-white p-4 rounded-[15px] shadow-lg transition-transform hover:scale-105 hover:-rotate-2 duration-300">
-                        <img src="imagens/bandeira.png" alt="" class="header-logo-bandeira w-full h-auto rounded-[10px]"
+                        <img src="imagens/bandeira.png" alt="Bandeira RJ" class="header-logo-bandeira w-full h-auto rounded-[10px]"
                              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"140\"><rect width=\"200\" height=\"140\" fill=\"%23eee\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"%233b82f6\" text-anchor=\"middle\" dy=\".3em\">RJ</text></svg>'">
                     </div>
                 </div>
@@ -107,21 +107,21 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
-                    <img src="imagens/parceiro-pmerj.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6] border-2 border-white/60">
+                    <img src="imagens/parceiro-pmerj.jpeg" alt="PMERJ" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">PMERJ</text></svg>'">
                 </div>
-                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
-                    <img src="imagens/parceiro-obras.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6] border-2 border-white/60">
+                    <img src="imagens/parceiro-obras.jpeg" alt="Obras" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">Obras</text></svg>'">
                 </div>
-                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
-                    <img src="imagens/parceiro-habitacao.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6] border-2 border-white/60">
+                    <img src="imagens/parceiro-habitacao.jpeg" alt="Habitação" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">Habitação</text></svg>'">
                 </div>
-                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6]">
-                    <img src="imagens/parceiro-agricultura.jpeg" alt="" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
+                <div class="partner-bg p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#3b82f6] border-2 border-white/60">
+                    <img src="imagens/parceiro-agricultura.jpeg" alt="Agricultura" class="partner-img max-w-full max-h-[130px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"18\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">Agricultura</text></svg>'">
                 </div>
             </div>
         </div>
