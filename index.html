@@ -94,6 +94,59 @@
         }
 
         .modal-close:hover { color: #1f2937; }
+        
+        /* Estilos específicos para o modal de escolha */
+        .choice-modal {
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .choice-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .choice-btn {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .choice-btn-primary {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+        
+        .choice-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+        
+        .choice-btn-secondary {
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .choice-btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+        
+        .choice-btn-icon {
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body class="min-h-screen w-full bg-gradient-to-br from-[#2563eb] to-[#93c5fd] p-4 sm:p-8 flex justify-center items-center">
@@ -270,8 +323,8 @@
                     <div class="btn-shine"></div>
                 </button>
 
-                <!-- MODIFICADO: Botão "Extrato das Incursões" agora abre diretamente o link -->
-                <button onclick="window.open('https://extratoacoes.vercel.app/', '_blank', 'noopener,noreferrer')" 
+                <!-- NOVO BOTÃO: Extrato das Incursões (Índigo) -->
+                <button id="extratoIncursoesBtn"
                         class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#4f46e5] to-[#6366f1] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(79,70,229,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(79,70,229,0.3)] active:translate-y-0 cursor-pointer border-2 border-indigo-600/50 min-h-[120px]">
                     <span class="relative z-10 text-center font-bold">Extrato das Incursões</span>
                     <div class="btn-shine"></div>
@@ -292,6 +345,34 @@
                 <img id="modalImg" src="" alt="" class="mx-auto max-w-full max-h-64 rounded-lg shadow-lg mb-6">
                 <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h3>
                 <p id="modalDesc" class="text-gray-600 leading-relaxed max-w-2xl mx-auto"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE ESCOLHA PARA EXTRATO DAS INCURSÕES -->
+    <div id="extratoChoiceModal" class="modal-overlay">
+        <div class="modal-content choice-modal">
+            <button class="modal-close" aria-label="Fechar">×</button>
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Escolha o tipo de extrato</h3>
+                <p class="text-gray-600 mb-6">Selecione uma das opções abaixo para acessar o dashboard desejado:</p>
+                
+                <div class="choice-buttons">
+                    <button id="extratoDetalhadoBtn" class="choice-btn choice-btn-primary">
+                        <span class="choice-btn-icon">📊</span>
+                        <span>Extrato Detalhado</span>
+                    </button>
+                    
+                    <button id="extratoSinteticoBtn" class="choice-btn choice-btn-secondary">
+                        <span class="choice-btn-icon">📈</span>
+                        <span>Extrato Sintético</span>
+                    </button>
+                </div>
+                
+                <p class="text-gray-500 text-sm mt-6">
+                    <strong>Extrato Detalhado:</strong> Visão completa com todos os dados das incursões<br>
+                    <strong>Extrato Sintético:</strong> Dashboard analítico com métricas consolidadas
+                </p>
             </div>
         </div>
     </div>
@@ -337,6 +418,45 @@
             });
             document.addEventListener('keydown', e => {
                 if (e.key === 'Escape' && partnerModal.classList.contains('active')) closePartnerModal();
+            });
+
+            // --- Funcionalidade do Modal de Escolha do Extrato ---
+            const extratoChoiceModal = document.getElementById('extratoChoiceModal');
+            const extratoBtn = document.getElementById('extratoIncursoesBtn');
+            const extratoDetalhadoBtn = document.getElementById('extratoDetalhadoBtn');
+            const extratoSinteticoBtn = document.getElementById('extratoSinteticoBtn');
+            const extratoCloseBtn = extratoChoiceModal.querySelector('.modal-close');
+
+            // Abrir modal de escolha ao clicar no botão "Extrato das Incursões"
+            extratoBtn.addEventListener('click', function() {
+                extratoChoiceModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Abrir Extrato Detalhado
+            extratoDetalhadoBtn.addEventListener('click', function() {
+                window.open('https://extratoacoes.vercel.app/', '_blank', 'noopener,noreferrer');
+                closeExtratoModal();
+            });
+
+            // Abrir Extrato Sintético
+            extratoSinteticoBtn.addEventListener('click', function() {
+                window.open('https://extratosintetico.vercel.app/', '_blank', 'noopener,noreferrer');
+                closeExtratoModal();
+            });
+
+            // Fechar modal de extrato
+            function closeExtratoModal() {
+                extratoChoiceModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            extratoCloseBtn.addEventListener('click', closeExtratoModal);
+            extratoChoiceModal.addEventListener('click', e => {
+                if (e.target === extratoChoiceModal) closeExtratoModal();
+            });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && extratoChoiceModal.classList.contains('active')) closeExtratoModal();
             });
 
             // Logs de imagens (mantidos)
