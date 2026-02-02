@@ -147,6 +147,177 @@
         .choice-btn-icon {
             font-size: 1.2rem;
         }
+
+        /* === ESTILOS DO MENU DROPDOWN === */
+        .dropdown-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .dropdown-button {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .dropdown-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-button.active .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 105%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-section {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            background: #f9fafb;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: #1f2937;
+        }
+
+        .dropdown-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .dropdown-item-icon {
+            font-size: 1.3rem;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .dropdown-item-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Cores específicas para cada categoria */
+        .dropdown-section.dashboards .dropdown-item:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .dropdown-section.releases .dropdown-item:hover {
+            background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+        }
+
+        .dropdown-section.ferramentas .dropdown-item:hover {
+            background: linear-gradient(135deg, #6d28d9 0%, #a78bfa 100%);
+        }
+
+        .dropdown-section.analise .dropdown-item:hover {
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+        }
+
+        /* Scrollbar personalizada para o menu */
+        .dropdown-menu::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .dropdown-menu::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .dropdown-menu::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+
+        .dropdown-menu::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+
+        /* Responsividade do menu */
+        @media (max-width: 640px) {
+            .dropdown-button {
+                font-size: 1.1rem;
+                padding: 1.25rem 1.5rem;
+            }
+
+            .dropdown-menu {
+                max-height: 500px;
+            }
+
+            .dropdown-item {
+                padding: 0.75rem 0.875rem;
+            }
+
+            .dropdown-item-text {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen w-full bg-gradient-to-br from-[#2563eb] to-[#93c5fd] p-4 sm:p-8 flex justify-center items-center">
@@ -166,7 +337,6 @@
                          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"150\"><rect width=\"500\" height=\"150\" rx=\"10\" fill=\"white\" fill-opacity=\"0.2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"32\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
 
-                <!-- Alteração: removido o fundo branco e bordas do brasão -->
                 <div class="transition-transform hover:scale-105 hover:-rotate-2 duration-300">
                     <img src="imagens/Brasão-I.png" alt="" class="header-logo-bandeira w-full h-auto"
                          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"150\"><rect width=\"500\" height=\"150\" fill=\"%23eee\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"%233b82f6\" text-anchor=\"middle\" dy=\".3em\"">
@@ -192,15 +362,14 @@
                          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"100\"><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-weight=\"bold\" font-size=\"20\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\"">
                 </div>
 
-		<div class="partner-card bg-white/80 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
-     data-title="Secretaria de Segurança Pública do Estado do Rio de Janeiro - SESP-RJ"
-     data-desc="A Secretaria de Estado de Segurança Pública (SESP) do Rio de Janeiro tem a função de formular, coordenar e executar políticas de segurança pública, integrando e supervisionando as ações das Polícias Civil e Militar para prevenir e combater a criminalidade, garantir a ordem pública e a segurança da população, por meio de inteligência, operações integradas, gestão de indicadores e fiscalização, visando a melhoria da qualidade de vida e a redução da violência no estado.">
-    
-    		<img src="imagens/Sec_Seg-I.png" alt="Logo SESP-RJ" class="partner-img max-w-full max-h-[179px] w-auto h-auto object-contain"
-         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'100\'><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'20\' fill=\'%23333\' text-anchor=\'middle\' dy=\'.3em\'>SESP-RJ</text></svg>'">
-		</div>
+                <div class="partner-card bg-white/80 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
+                     data-title="Secretaria de Segurança Pública do Estado do Rio de Janeiro - SESP-RJ"
+                     data-desc="A Secretaria de Estado de Segurança Pública (SESP) do Rio de Janeiro tem a função de formular, coordenar e executar políticas de segurança pública, integrando e supervisionando as ações das Polícias Civil e Militar para prevenir e combater a criminalidade, garantir a ordem pública e a segurança da população, por meio de inteligência, operações integradas, gestão de indicadores e fiscalização, visando a melhoria da qualidade de vida e a redução da violência no estado.">
+                    <img src="imagens/Sec_Seg-I.png" alt="Logo SESP-RJ" class="partner-img max-w-full max-h-[179px] w-auto h-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'100\'><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'20\' fill=\'%23333\' text-anchor=\'middle\' dy=\'.3em\'>SESP-RJ</text></svg>'">
+                </div>
 
-                <!-- Secretaria de Polícia Civil - Alteração: sem borda no hover e com drop-shadow -->
+                <!-- Polícia Civil -->
                 <div class="partner-card bg-white/10 p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm cursor-pointer"
                      data-title="Polícia Civil do Estado do Rio de Janeiro - PCERJ"
                      data-desc="Responsável pelas funções de polícia judiciária e investigação criminal no âmbito do território fluminense, visando à apuração de infrações penais e à identificação de autoria. Atua em conjunto com o GSI e outras forças de segurança na Operação Barricada Zero, por meio de ações de inteligência e investigação, para identificar e responsabilizar as organizações criminosas e indivíduos envolvidos na instalação de barricadas e na dominação de áreas pelo crime organizado, contribuindo para a recuperação do território e a garantia do direito de ir e vir da população.">
@@ -210,7 +379,7 @@
             </div>
         </div>
 
-        <!-- CARD PARCEIROS MODIFICADO (azul-claro com 5 contêineres e contraste) -->
+        <!-- CARD PARCEIROS MODIFICADO -->
         <div class="rounded-[20px] bg-gradient-to-br from-[#c7d2fe] to-[#a5b4fc] shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
                 <h2 class="text-[#1e3a8a] text-3xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
@@ -220,7 +389,6 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-
                 <!-- Secretaria de Obras -->
                 <div class="partner-card bg-gradient-to-br from-[#e0f2fe] to-[#bae6fd] p-6 rounded-[15px] shadow-md flex items-center justify-center min-h-[160px] transition-all hover:-translate-y-2 hover:shadow-xl border-2 border-blue-200 hover:border-blue-400 backdrop-blur-sm cursor-pointer"
                      data-title="Secretaria de Estado de Obras e Infraestrutura"
@@ -255,80 +423,106 @@
             </div>
         </div>
 
-        <!-- CARD DASHBOARDS COM DISTRIBUIÇÃO OTIMIZADA -->
+        <!-- CARD MENU DE MÓDULOS OTIMIZADO -->
         <div class="rounded-[20px] bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
                 <h2 class="text-[#2563eb] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
-                    Painel de Dashboards - Clique nos botões para acessar
+                    Acesso aos Módulos do Sistema
                     <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-1 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] rounded-full"></span>
                 </h2>
             </div>
 
-            <!-- Container com distribuição equitativa e centralizada - ATUALIZADO para 9 botões -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Dashboard GSI - PMERJ (Azul Royal) -->
-                <button onclick="window.open('https://bzero-gsi-b.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#1e40af] to-[#3b82f6] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(30,64,175,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(30,64,175,0.3)] active:translate-y-0 cursor-pointer border-2 border-blue-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Dashboard GSI - PMERJ</span>
-                    <div class="btn-shine"></div>
+            <!-- DROPDOWN MENU -->
+            <div class="dropdown-container">
+                <button id="dropdownButton" class="dropdown-button">
+                    <span>📊 Selecione aqui os Módulos que deseja acessar</span>
+                    <span class="dropdown-icon">▼</span>
                 </button>
 
-                <!-- Dashboard GSI - PCERJ (Azul Cobalto) -->
-                <button onclick="window.open('https://bzero-gsi-a.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#2563eb] to-[#60a5fa] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(37,99,235,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(37,99,235,0.3)] active:translate-y-0 cursor-pointer border-2 border-blue-500/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Dashboard GSI - PCERJ</span>
-                    <div class="btn-shine"></div>
-                </button>
-                
-                <!-- Release PMERJ (Verde Esmeralda) -->
-                <button onclick="window.open('https://releasepmerj.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#047857] to-[#10b981] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(4,120,87,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(4,120,87,0.3)] active:translate-y-0 cursor-pointer border-2 border-emerald-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Release PMERJ</span>
-                    <div class="btn-shine"></div>
-                </button>
+                <div id="dropdownMenu" class="dropdown-menu">
+                    <!-- Seção Dashboards -->
+                    <div class="dropdown-section dashboards">
+                        <div class="dropdown-section-title">📊 Dashboards</div>
+                        <div class="dropdown-item" onclick="openModule('https://bzero-gsi-b.vercel.app/')">
+                            <span class="dropdown-item-icon">🔵</span>
+                            <span class="dropdown-item-text">Dashboard GSI - PMERJ</span>
+                        </div>
+                        <div class="dropdown-item" onclick="openModule('https://bzero-gsi-a.vercel.app/')">
+                            <span class="dropdown-item-icon">🔷</span>
+                            <span class="dropdown-item-text">Dashboard GSI - PCERJ</span>
+                        </div>
+                    </div>
 
-                <!-- Release PCERJ (Verde Jade) -->
-                <button onclick="window.open('https://releasepcerj.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#059669] to-[#34d399] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(5,150,105,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(5,150,105,0.3)] active:translate-y-0 cursor-pointer border-2 border-emerald-500/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Release PCERJ</span>
-                    <div class="btn-shine"></div>
-                </button>
+                    <!-- Seção Releases -->
+                    <div class="dropdown-section releases">
+                        <div class="dropdown-section-title">📋 Releases</div>
+                        <div class="dropdown-item" onclick="openModule('https://releasepmerj.vercel.app/')">
+                            <span class="dropdown-item-icon">🟢</span>
+                            <span class="dropdown-item-text">Release PMERJ</span>
+                        </div>
+                        <div class="dropdown-item" onclick="openModule('https://releasepcerj.vercel.app/')">
+                            <span class="dropdown-item-icon">🟩</span>
+                            <span class="dropdown-item-text">Release PCERJ</span>
+                        </div>
+                    </div>
 
-                <!-- Slides Power Point (Roxo Ametista) -->
-                <button onclick="window.open('https://slides-opbzero.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#6d28d9] to-[#a78bfa] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(109,40,217,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(109,40,217,0.3)] active:translate-y-0 cursor-pointer border-2 border-purple-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Slides Power Point</span>
-                    <div class="btn-shine"></div>
-                </button>
+                    <!-- Seção Ferramentas -->
+                    <div class="dropdown-section ferramentas">
+                        <div class="dropdown-section-title">🛠️ Ferramentas</div>
+                        <div class="dropdown-item" onclick="openModule('https://slides-opbzero.vercel.app/')">
+                            <span class="dropdown-item-icon">🟣</span>
+                            <span class="dropdown-item-text">Slides Power Point</span>
+                        </div>
+                        <div class="dropdown-item" onclick="openModule('https://planejsemanal.vercel.app/')">
+                            <span class="dropdown-item-icon">🟠</span>
+                            <span class="dropdown-item-text">Planejamento Semanal</span>
+                        </div>
+                        <div class="dropdown-item" onclick="openModule('https://viasmapeadas.vercel.app/')">
+                            <span class="dropdown-item-icon">🟣</span>
+                            <span class="dropdown-item-text">Vias Catalogadas</span>
+                        </div>
+                    </div>
 
-                <!-- NOVO BOTÃO: Planejamento Semanal (Laranja) -->
-                <button onclick="window.open('https://planejsemanal.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#ea580c] to-[#f97316] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(234,88,12,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(234,88,12,0.3)] active:translate-y-0 cursor-pointer border-2 border-orange-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Planejamento Semanal</span>
-                    <div class="btn-shine"></div>
-                </button>
+                    <!-- Seção Análise -->
+                    <div class="dropdown-section analise">
+                        <div class="dropdown-section-title">📈 Análise e Relatórios</div>
+                        <div class="dropdown-item" onclick="openModule('https://analisedesempenho.vercel.app/')">
+                            <span class="dropdown-item-icon">🟠</span>
+                            <span class="dropdown-item-text">Análise de Desempenho</span>
+                        </div>
+                        <div class="dropdown-item" onclick="openModule('https://analise-incursoes.vercel.app/')">
+                            <span class="dropdown-item-icon">🟠</span>
+                            <span class="dropdown-item-text">Análise de Incursões/Denúncias</span>
+                        </div>
+                        <div class="dropdown-item" onclick="openExtratoModal()">
+                            <span class="dropdown-item-icon">🟣</span>
+                            <span class="dropdown-item-text">Extrato das Incursões</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <!-- NOVO BOTÃO: Vias Catalogadas (Índigo) -->
-                <button onclick="window.open('https://viasmapeadas.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#4f46e5] to-[#6366f1] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(79,70,229,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(79,70,229,0.3)] active:translate-y-0 cursor-pointer border-2 border-indigo-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Vias Catalogadas</span>
-                    <div class="btn-shine"></div>
-                </button>
-
-
-                <!-- NOVO BOTÃO: Análise de Desempenho -->
-                <button onclick="window.open('https://analisedesempenho.vercel.app/', '_blank', 'noopener,noreferrer')" 
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#ea580c] to-[#f97316] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(234,88,12,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(234,88,12,0.3)] active:translate-y-0 cursor-pointer border-2 border-gray-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Análise de Desempenho</span>
-                    <div class="btn-shine"></div>
-                </button>
-
-                <!-- NOVO BOTÃO: Extrato das Incursões (Índigo) -->
-                <button id="extratoIncursoesBtn"
-                        class="btn relative overflow-hidden w-full bg-gradient-to-br from-[#4f46e5] to-[#6366f1] text-white p-5 rounded-[15px] font-semibold text-base sm:text-lg flex flex-col items-center justify-center gap-2 shadow-[0_8px_20px_rgba(79,70,229,0.2)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(79,70,229,0.3)] active:translate-y-0 cursor-pointer border-2 border-indigo-600/50 min-h-[120px]">
-                    <span class="relative z-10 text-center font-bold">Extrato das Incursões</span>
-                    <div class="btn-shine"></div>
-                </button>
+            <!-- Legenda de Categorias -->
+            <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                <h3 class="text-center text-sm font-bold text-gray-700 mb-3">📌 Categorias dos Módulos</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <span class="text-blue-600 font-bold">●</span>
+                        <span>Dashboards - Painéis visuais</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-green-600 font-bold">●</span>
+                        <span>Releases - Documentação</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-purple-600 font-bold">●</span>
+                        <span>Ferramentas - Utilidades</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-orange-600 font-bold">●</span>
+                        <span>Análise - Relatórios</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -379,12 +573,31 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    this.classList.add('scale-95');
-                    setTimeout(() => this.classList.remove('scale-95'), 150);
-                });
+            // === FUNCIONALIDADE DO DROPDOWN MENU ===
+            const dropdownButton = document.getElementById('dropdownButton');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            // Toggle do menu dropdown
+            dropdownButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownButton.classList.toggle('active');
+                dropdownMenu.classList.toggle('active');
+            });
+
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownButton.classList.remove('active');
+                    dropdownMenu.classList.remove('active');
+                }
+            });
+
+            // Fechar menu ao pressionar ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdownMenu.classList.contains('active')) {
+                    dropdownButton.classList.remove('active');
+                    dropdownMenu.classList.remove('active');
+                }
             });
 
             // --- Funcionalidade do Modal de Parceiros ---
@@ -422,16 +635,9 @@
 
             // --- Funcionalidade do Modal de Escolha do Extrato ---
             const extratoChoiceModal = document.getElementById('extratoChoiceModal');
-            const extratoBtn = document.getElementById('extratoIncursoesBtn');
             const extratoDetalhadoBtn = document.getElementById('extratoDetalhadoBtn');
             const extratoSinteticoBtn = document.getElementById('extratoSinteticoBtn');
             const extratoCloseBtn = extratoChoiceModal.querySelector('.modal-close');
-
-            // Abrir modal de escolha ao clicar no botão "Extrato das Incursões"
-            extratoBtn.addEventListener('click', function() {
-                extratoChoiceModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
 
             // Abrir Extrato Detalhado
             extratoDetalhadoBtn.addEventListener('click', function() {
@@ -458,14 +664,23 @@
             document.addEventListener('keydown', e => {
                 if (e.key === 'Escape' && extratoChoiceModal.classList.contains('active')) closeExtratoModal();
             });
-
-            // Logs de imagens (mantidos)
-            document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('load', () => console.log(`Imagem carregada: ${img.alt}`));
-                img.addEventListener('error', () => console.warn(`Imagem não encontrada: ${img.src}`));
-            });
         });
+
+        // === FUNÇÕES GLOBAIS PARA NAVEGAÇÃO ===
+        function openModule(url) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+            // Fechar o dropdown após abrir o módulo
+            document.getElementById('dropdownButton').classList.remove('active');
+            document.getElementById('dropdownMenu').classList.remove('active');
+        }
+
+        function openExtratoModal() {
+            document.getElementById('extratoChoiceModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Fechar o dropdown
+            document.getElementById('dropdownButton').classList.remove('active');
+            document.getElementById('dropdownMenu').classList.remove('active');
+        }
     </script>
 </body>
 </html>
-
