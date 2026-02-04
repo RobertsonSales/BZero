@@ -148,38 +148,61 @@
             font-size: 1.2rem;
         }
 
-        /* === ESTILOS DO MENU DROPDOWN === */
+        /* === ESTILOS DOS MENUS SUSPENSOS INDIVIDUAIS === */
+        .dropdowns-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .dropdown-container {
             position: relative;
-            max-width: 500px;
-            margin: 0 auto;
         }
 
         .dropdown-button {
             width: 100%;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-            color: white;
+            padding: 1.25rem 1.5rem;
             border: none;
-            border-radius: 16px;
-            font-size: 1.4rem;
+            border-radius: 14px;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
             transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .dropdown-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+        }
+
+        /* Cores específicas para cada categoria */
+        .dropdown-container.dashboards .dropdown-button {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .dropdown-container.releases .dropdown-button {
+            background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+        }
+
+        .dropdown-container.ferramentas .dropdown-button {
+            background: linear-gradient(135deg, #6d28d9 0%, #a78bfa 100%);
+        }
+
+        .dropdown-container.analise .dropdown-button {
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
         }
 
         .dropdown-icon {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transition: transform 0.3s ease;
+            margin-left: 0.5rem;
         }
 
         .dropdown-button.active .dropdown-icon {
@@ -192,15 +215,14 @@
             left: 0;
             right: 0;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-radius: 14px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
             z-index: 100;
-            max-height: 600px;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         .dropdown-menu.active {
@@ -209,22 +231,8 @@
             transform: translateY(0);
         }
 
-        .dropdown-section {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .dropdown-section:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-section-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #6b7280;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.05em;
+        .dropdown-items {
+            padding: 1rem;
         }
 
         .dropdown-item {
@@ -246,68 +254,65 @@
         }
 
         .dropdown-item:hover {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: white;
             transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hover colors específicos por categoria */
+        .dropdown-container.dashboards .dropdown-item:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .dropdown-container.releases .dropdown-item:hover {
+            background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+            color: white;
+        }
+
+        .dropdown-container.ferramentas .dropdown-item:hover {
+            background: linear-gradient(135deg, #6d28d9 0%, #a78bfa 100%);
+            color: white;
+        }
+
+        .dropdown-container.analise .dropdown-item:hover {
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+            color: white;
         }
 
         .dropdown-item-icon {
-            font-size: 1.3rem;
-            min-width: 30px;
+            font-size: 1.2rem;
+            min-width: 28px;
             text-align: center;
         }
 
         .dropdown-item-text {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            line-height: 1.3;
         }
 
-        /* Cores específicas para cada categoria */
-        .dropdown-section.dashboards .dropdown-item:hover {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-        }
-
-        .dropdown-section.releases .dropdown-item:hover {
-            background: linear-gradient(135deg, #047857 0%, #10b981 100%);
-        }
-
-        .dropdown-section.ferramentas .dropdown-item:hover {
-            background: linear-gradient(135deg, #6d28d9 0%, #a78bfa 100%);
-        }
-
-        .dropdown-section.analise .dropdown-item:hover {
-            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
-        }
-
-        /* Scrollbar personalizada para o menu */
-        .dropdown-menu::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .dropdown-menu::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .dropdown-menu::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 10px;
-        }
-
-        .dropdown-menu::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
-        }
-
-        /* Responsividade do menu */
-        @media (max-width: 640px) {
-            .dropdown-button {
-                font-size: 1.1rem;
-                padding: 1.25rem 1.5rem;
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .dropdowns-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
             }
 
-            .dropdown-menu {
-                max-height: 500px;
+            .dropdown-button {
+                font-size: 0.95rem;
+                padding: 1.125rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dropdowns-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .dropdown-button {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
             }
 
             .dropdown-item {
@@ -315,7 +320,7 @@
             }
 
             .dropdown-item-text {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -423,7 +428,7 @@
             </div>
         </div>
 
-        <!-- CARD MENU DE MÓDULOS OTIMIZADO -->
+        <!-- CARD MENU DE MÓDULOS COM DROPDOWNS INDIVIDUAIS -->
         <div class="rounded-[20px] bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.2)] p-8 md:p-10 backdrop-blur-md">
             <div class="text-center mb-10 relative">
                 <h2 class="text-[#2563eb] text-2xl md:text-3xl font-bold uppercase tracking-wider pb-4 inline-block relative">
@@ -432,74 +437,97 @@
                 </h2>
             </div>
 
-            <!-- DROPDOWN MENU -->
-            <div class="dropdown-container">
-                <button id="dropdownButton" class="dropdown-button">
-                    <span>📊 Selecione aqui os Módulos que deseja acessar</span>
-                    <span class="dropdown-icon">▼</span>
-                </button>
-
-                <div id="dropdownMenu" class="dropdown-menu">
-                    <!-- Seção Dashboards -->
-                    <div class="dropdown-section dashboards">
-                        <div class="dropdown-section-title">📊 Dashboards</div>
-                        <div class="dropdown-item" onclick="openModule('https://bzero-gsi-b.vercel.app/')">
-                            <span class="dropdown-item-icon">🔵</span>
-                            <span class="dropdown-item-text">Dashboard GSI - PMERJ</span>
-                        </div>
-                        <div class="dropdown-item" onclick="openModule('https://bzero-gsi-a.vercel.app/')">
-                            <span class="dropdown-item-icon">🔷</span>
-                            <span class="dropdown-item-text">Dashboard GSI - PCERJ</span>
-                        </div>
-                    </div>
-
-                    <!-- Seção Releases -->
-                    <div class="dropdown-section releases">
-                        <div class="dropdown-section-title">📋 Releases</div>
-                        <div class="dropdown-item" onclick="openModule('https://releasepmerj.vercel.app/')">
-                            <span class="dropdown-item-icon">🟢</span>
-                            <span class="dropdown-item-text">Release PMERJ</span>
-                        </div>
-                        <div class="dropdown-item" onclick="openModule('https://releasepcerj.vercel.app/')">
-                            <span class="dropdown-item-icon">🟩</span>
-                            <span class="dropdown-item-text">Release PCERJ</span>
-                        </div>
-                    </div>
-
-                    <!-- Seção Ferramentas -->
-                    <div class="dropdown-section ferramentas">
-                        <div class="dropdown-section-title">🛠️ Ferramentas</div>
-                        <div class="dropdown-item" onclick="openModule('https://slides-opbzero.vercel.app/')">
-                            <span class="dropdown-item-icon">🟣</span>
-                            <span class="dropdown-item-text">Slides Power Point</span>
-                        </div>
-                        <div class="dropdown-item" onclick="openModule('https://planejsemanal.vercel.app/')">
-                            <span class="dropdown-item-icon">🟠</span>
-                            <span class="dropdown-item-text">Planejamento Semanal</span>
-                        </div>
-                        <div class="dropdown-item" onclick="openModule('https://viasmapeadas.vercel.app/')">
-                            <span class="dropdown-item-icon">🟣</span>
-                            <span class="dropdown-item-text">Vias Catalogadas</span>
-                        </div>
-                    </div>
-
-                    <!-- Seção Análise -->
-                    <div class="dropdown-section analise">
-                        <div class="dropdown-section-title">📈 Análise e Relatórios</div>
-                        <div class="dropdown-item" onclick="openModule('https://analisedesempenho.vercel.app/')">
-                            <span class="dropdown-item-icon">🟠</span>
-                            <span class="dropdown-item-text">Análise de Desempenho</span>
-                        </div>
-                        <div class="dropdown-item" onclick="openModule('https://analise-incursoes.vercel.app/')">
-                            <span class="dropdown-item-icon">🟠</span>
-                            <span class="dropdown-item-text">Análise de Incursões/Denúncias</span>
-                        </div>
-                        <div class="dropdown-item" onclick="openExtratoModal()">
-                            <span class="dropdown-item-icon">🟣</span>
-                            <span class="dropdown-item-text">Extrato das Incursões</span>
+            <!-- GRID DE MENUS SUSPENSOS INDEPENDENTES -->
+            <div class="dropdowns-grid">
+                
+                <!-- DROPDOWN 1: DASHBOARDS -->
+                <div class="dropdown-container dashboards">
+                    <button class="dropdown-button" data-dropdown="dashboards">
+                        <span>📊 Dashboards</span>
+                        <span class="dropdown-icon">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-items">
+                            <div class="dropdown-item" onclick="openModule('https://bzero-gsi-b.vercel.app/')">
+                                <span class="dropdown-item-icon">🔵</span>
+                                <span class="dropdown-item-text">Dashboard GSI - PMERJ</span>
+                            </div>
+                            <div class="dropdown-item" onclick="openModule('https://bzero-gsi-a.vercel.app/')">
+                                <span class="dropdown-item-icon">🔷</span>
+                                <span class="dropdown-item-text">Dashboard GSI - PCERJ</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- DROPDOWN 2: RELEASES -->
+                <div class="dropdown-container releases">
+                    <button class="dropdown-button" data-dropdown="releases">
+                        <span>📋 Releases</span>
+                        <span class="dropdown-icon">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-items">
+                            <div class="dropdown-item" onclick="openModule('https://releasepmerj.vercel.app/')">
+                                <span class="dropdown-item-icon">🟢</span>
+                                <span class="dropdown-item-text">Release PMERJ</span>
+                            </div>
+                            <div class="dropdown-item" onclick="openModule('https://releasepcerj.vercel.app/')">
+                                <span class="dropdown-item-icon">🟩</span>
+                                <span class="dropdown-item-text">Release PCERJ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DROPDOWN 3: FERRAMENTAS -->
+                <div class="dropdown-container ferramentas">
+                    <button class="dropdown-button" data-dropdown="ferramentas">
+                        <span>🛠️ Ferramentas</span>
+                        <span class="dropdown-icon">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-items">
+                            <div class="dropdown-item" onclick="openModule('https://slides-opbzero.vercel.app/')">
+                                <span class="dropdown-item-icon">🟣</span>
+                                <span class="dropdown-item-text">Slides Power Point</span>
+                            </div>
+                            <div class="dropdown-item" onclick="openModule('https://planejsemanal.vercel.app/')">
+                                <span class="dropdown-item-icon">🟠</span>
+                                <span class="dropdown-item-text">Planejamento Semanal</span>
+                            </div>
+                            <div class="dropdown-item" onclick="openModule('https://viasmapeadas.vercel.app/')">
+                                <span class="dropdown-item-icon">🟣</span>
+                                <span class="dropdown-item-text">Vias Catalogadas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DROPDOWN 4: ANÁLISE -->
+                <div class="dropdown-container analise">
+                    <button class="dropdown-button" data-dropdown="analise">
+                        <span>📈 Análise e Relatórios</span>
+                        <span class="dropdown-icon">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-items">
+                            <div class="dropdown-item" onclick="openModule('https://analisedesempenho.vercel.app/')">
+                                <span class="dropdown-item-icon">🟠</span>
+                                <span class="dropdown-item-text">Análise de Desempenho</span>
+                            </div>
+                            <div class="dropdown-item" onclick="openModule('https://analise-incursoes.vercel.app/')">
+                                <span class="dropdown-item-icon">🟠</span>
+                                <span class="dropdown-item-text">Análise de Incursões/Denúncias</span>
+                            </div>
+                            <div class="dropdown-item" onclick="openExtratoModal()">
+                                <span class="dropdown-item-icon">🟣</span>
+                                <span class="dropdown-item-text">Extrato das Incursões</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Legenda de Categorias -->
@@ -573,30 +601,49 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // === FUNCIONALIDADE DO DROPDOWN MENU ===
-            const dropdownButton = document.getElementById('dropdownButton');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-
-            // Toggle do menu dropdown
-            dropdownButton.addEventListener('click', function(e) {
-                e.stopPropagation();
-                dropdownButton.classList.toggle('active');
-                dropdownMenu.classList.toggle('active');
+            // === FUNCIONALIDADE DOS DROPDOWNS INDIVIDUAIS ===
+            const dropdownButtons = document.querySelectorAll('.dropdown-button');
+            
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const container = this.closest('.dropdown-container');
+                    const menu = container.querySelector('.dropdown-menu');
+                    const isActive = this.classList.contains('active');
+                    
+                    // Fechar todos os outros dropdowns
+                    closeAllDropdowns();
+                    
+                    // Toggle do dropdown atual
+                    if (!isActive) {
+                        this.classList.add('active');
+                        menu.classList.add('active');
+                    }
+                });
             });
 
-            // Fechar menu ao clicar fora
+            // Função para fechar todos os dropdowns
+            function closeAllDropdowns() {
+                document.querySelectorAll('.dropdown-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('active');
+                });
+            }
+
+            // Fechar dropdowns ao clicar fora
             document.addEventListener('click', function(e) {
-                if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                    dropdownButton.classList.remove('active');
-                    dropdownMenu.classList.remove('active');
+                if (!e.target.closest('.dropdown-container')) {
+                    closeAllDropdowns();
                 }
             });
 
-            // Fechar menu ao pressionar ESC
+            // Fechar dropdowns ao pressionar ESC
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && dropdownMenu.classList.contains('active')) {
-                    dropdownButton.classList.remove('active');
-                    dropdownMenu.classList.remove('active');
+                if (e.key === 'Escape') {
+                    closeAllDropdowns();
                 }
             });
 
@@ -669,17 +716,25 @@
         // === FUNÇÕES GLOBAIS PARA NAVEGAÇÃO ===
         function openModule(url) {
             window.open(url, '_blank', 'noopener,noreferrer');
-            // Fechar o dropdown após abrir o módulo
-            document.getElementById('dropdownButton').classList.remove('active');
-            document.getElementById('dropdownMenu').classList.remove('active');
+            // Fechar todos os dropdowns após abrir o módulo
+            document.querySelectorAll('.dropdown-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
         }
 
         function openExtratoModal() {
             document.getElementById('extratoChoiceModal').classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Fechar o dropdown
-            document.getElementById('dropdownButton').classList.remove('active');
-            document.getElementById('dropdownMenu').classList.remove('active');
+            // Fechar todos os dropdowns
+            document.querySelectorAll('.dropdown-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
         }
     </script>
 </body>
